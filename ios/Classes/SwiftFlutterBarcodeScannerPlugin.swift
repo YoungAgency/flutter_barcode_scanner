@@ -323,17 +323,17 @@ class BarcodeScannerViewController: UIViewController {
         
         if let qrCodeFrameView = qrCodeFrameView {
             self.view.addSubview(qrCodeFrameView)
-            self.view.bringSubviewToFront(qrCodeFrameView)
+            self.view.bringSubview(toFront: qrCodeFrameView)
             qrCodeFrameView.layer.insertSublayer(fillLayer, below: videoPreviewLayer!)
-            self.view.bringSubviewToFront(bottomView)
-            self.view.bringSubviewToFront(flashIcon)
+            self.view.bringSubview(toFront: bottomView)
+            self.view.bringSubview(toFront: flashIcon)
             if(!SwiftFlutterBarcodeScannerPlugin.isShowFlashIcon){
                 flashIcon.isHidden=true
             }
             qrCodeFrameView.layoutIfNeeded()
             qrCodeFrameView.layoutSubviews()
             qrCodeFrameView.setNeedsUpdateConstraints()
-            self.view.bringSubviewToFront(cancelButton)
+            self.view.bringSubview(toFront: cancelButton)
         }
         setConstraintsForControls()
         self.drawLine()
