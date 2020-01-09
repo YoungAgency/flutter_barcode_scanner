@@ -114,7 +114,7 @@ public class SwiftFlutterBarcodeScannerPlugin: NSObject, FlutterPlugin, ScanBarc
                             let alert = UIAlertController(title: "Action needed", message: "Please grant camera permission to use barcode scanner", preferredStyle: .alert)
                             
                             alert.addAction(UIAlertAction(title: "Grant", style: .default, handler: { action in
-                                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                                UIApplication.shared.open(URL(string: UIApplication.UIApplicationOpenSettingsURLString)!)
                             }))
                             
                             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
@@ -296,7 +296,7 @@ class BarcodeScannerViewController: UIViewController {
         let fillLayer = CAShapeLayer()
         
         fillLayer.path = overlayPath.cgPath
-        fillLayer.fillRule = CAShapeLayerFillRule.evenOdd
+        fillLayer.fillRule = kCAFillRuleEvenOdd
         fillLayer.fillColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor
         
         videoPreviewLayer?.layoutSublayers()
